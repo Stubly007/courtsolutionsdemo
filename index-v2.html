@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Court Solutions Southeast | Tennis Court Cleaning & Refurbishment</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --sage-light: #d5e2db;
+  --sage-muted: #a4b5ac;
+  --green: #2c703b;
+  --green-dark: #1f5229;
+  --red: #d17874;
+  --red-dark: #b85e5a;
+  --white: #ffffff;
+  --text: #2c3e35;
+  --text-light: #5a6b62;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  color: var(--text);
+  line-height: 1.5;
+  background: var(--white);
+}
+img { max-width: 100%; height: auto; display: block; }
+a { color: var(--green); text-decoration: none; }
+a:hover { color: var(--green-dark); }
+
+/* ========== STICKY HEADER ========== */
+header.sticky {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: var(--sage-light);
+  border-bottom: 1px solid var(--sage-muted);
+  box-shadow: 0 2px 8px rgba(44, 112, 59, 0.08);
+  overflow: visible;
+}
+.header-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0.5rem 1.5rem 0.25rem;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1.5rem;
+  overflow: visible;
+  position: relative;
+}
+.logo {
+  display: block;
+  position: relative;
+  z-index: 2;
+  margin-bottom: -28px; /* allow logo to overhang */
+}
+.logo img {
+  height: 92px; /* roughly double so ~50% sits inside the bar */
+  width: auto;
+  display: block;
+}
+nav ul {
+  display: flex;
+  list-style: none;
+  gap: 1.75rem;
+  font-weight: 500;
+  font-size: 0.95rem;
+  padding-top: 0.6rem;
+}
+nav a { color: var(--text); }
+nav a:hover, nav a.active { color: var(--green); }
+.header-cta {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  padding-top: 0.35rem;
+}
+.phone {
+  font-weight: 600;
+  color: var(--green);
+  font-size: 0.95rem;
+  white-space: nowrap;
+  padding-top: 0.4rem;
+}
+.btn {
+  display: inline-block;
+  background: var(--red);
+  color: var(--white) !important;
+  padding: 0.65rem 1.25rem;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.15s;
+  text-align: center;
+}
+.btn:hover { background: var(--red-dark); }
+.btn-outline {
+  background: transparent;
+  color: var(--green) !important;
+  border: 2px solid var(--green);
+}
+.btn-outline:hover { background: var(--green); color: var(--white) !important; }
+.btn-lg { padding: 0.85rem 1.75rem; font-size: 1rem; }
+
+/* Special oversized nav CTA that overhangs the bar */
+.btn-nav {
+  background: var(--green);
+  color: var(--white) !important;
+  font-weight: 700;
+  font-size: 0.95rem;
+  line-height: 1.15;
+  padding: 0.55rem 1.1rem 0.7rem;
+  border-radius: 8px;
+  box-shadow: 0 6px 16px rgba(44, 112, 59, 0.35);
+  position: relative;
+  z-index: 2;
+  margin-bottom: -22px; /* extend over bottom of nav */
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.btn-nav:hover { background: var(--green-dark); }
+.btn-nav span { display: block; }
+
+/* ========== HERO (VIDEO) ========== */
+.hero {
+  position: relative;
+  min-height: 560px;
+  display: flex;
+  align-items: center;
+  background: var(--sage-light);
+  overflow: hidden;
+}
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+.hero-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.hero-content {
+  position: relative;
+  z-index: 3;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 3rem 1.5rem;
+  width: 100%;
+}
+.hero-box {
+  background: rgba(255,255,255,0.94);
+  max-width: 480px;
+  padding: 2rem 2.25rem;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(44, 112, 59, 0.12);
+}
+.hero-box h1 {
+  font-size: 2.1rem;
+  font-weight: 700;
+  color: var(--green);
+  line-height: 1.2;
+  margin-bottom: 0.75rem;
+}
+.hero-box p {
+  color: var(--text-light);
+  margin-bottom: 1.5rem;
+  font-size: 1.05rem;
+}
+.hero-label {
+  display: inline-block;
+  background: var(--sage-light);
+  color: var(--green);
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 0.25rem 0.6rem;
+  border-radius: 4px;
+  margin-bottom: 0.75rem;
+}
+
+/* ========== SERVICES ========== */
+.section { padding: 4.5rem 1.5rem; }
+.container { max-width: 1200px; margin: 0 auto; }
+.section-header {
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+.section-header h2 {
+  font-size: 1.9rem;
+  color: var(--green);
+  margin-bottom: 0.5rem;
+}
+.section-header p { color: var(--text-light); max-width: 520px; margin: 0 auto; }
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.25rem;
+}
+.service-card {
+  background: var(--sage-light);
+  padding: 1.25rem 1.25rem 1.5rem;
+  border-radius: 10px;
+  text-align: center;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.service-card:hover { transform: translateY(-3px); box-shadow: 0 6px 16px rgba(44, 112, 59, 0.1); }
+.service-card img {
+  width: 100%;
+  height: 140px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 0.9rem;
+}
+.service-card h3 {
+  color: var(--green);
+  font-size: 1.1rem;
+  margin-bottom: 0.4rem;
+  font-weight: 600;
+}
+.service-card p { color: var(--text-light); font-size: 0.9rem; }
+
+/* ========== GALLERY ========== */
+.gallery {
+  background: var(--sage-light);
+  padding: 4rem 1.5rem;
+}
+.gallery-strip {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.ba-card {
+  position: relative;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  aspect-ratio: 4/3;
+}
+.ba-card .ba-slider { min-height: 0; height: 100%; }
+.ba-card .ba-slider img { object-fit: cover; }
+.ba-caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(transparent, rgba(44, 112, 59, 0.85));
+  color: var(--white);
+  padding: 1.25rem 1rem 0.75rem;
+  font-size: 0.85rem;
+  font-weight: 500;
+  text-align: center;
+}
+.gallery-cta {
+  text-align: center;
+  margin-top: 2rem;
+}
+
+/* Before/after slider styles (still used in gallery) */
+.ba-slider {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  cursor: ew-resize;
+}
+.ba-slider img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.ba-after { clip-path: inset(0 50% 0 0); }
+.ba-handle {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 4px;
+  background: var(--white);
+  transform: translateX(-50%);
+  z-index: 2;
+  box-shadow: 0 0 8px rgba(0,0,0,0.3);
+}
+.ba-handle::after {
+  content: '↔';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: var(--white);
+  color: var(--green);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 1.1rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.25);
+}
+
+/* ========== WHY US ========== */
+.why-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+.why-item {
+  text-align: center;
+  padding: 1.25rem 0.5rem;
+}
+.why-item .icon {
+  width: 48px;
+  height: 48px;
+  background: var(--sage-light);
+  color: var(--green);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 0.75rem;
+  font-size: 1.4rem;
+  font-weight: 700;
+}
+.why-item h3 { color: var(--green); font-size: 1.05rem; margin-bottom: 0.35rem; }
+.why-item p { color: var(--text-light); font-size: 0.9rem; }
+
+/* ========== FOOTER CTA ========== */
+.footer-cta {
+  background: var(--green);
+  color: var(--white);
+  text-align: center;
+  padding: 4rem 1.5rem;
+}
+.footer-cta h2 { font-size: 1.9rem; margin-bottom: 0.75rem; }
+.footer-cta p { opacity: 0.9; margin-bottom: 1.75rem; max-width: 480px; margin-left: auto; margin-right: auto; }
+.footer-cta .phones {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+  margin-bottom: 1.5rem;
+  font-size: 1.15rem;
+  font-weight: 600;
+}
+.footer-cta .phones a { color: var(--white); }
+.footer-cta .phones a:hover { text-decoration: underline; }
+.footer-bottom {
+  background: var(--green-dark);
+  color: var(--sage-light);
+  text-align: center;
+  padding: 1.25rem;
+  font-size: 0.85rem;
+}
+
+/* ========== RESPONSIVE ========== */
+@media (max-width: 900px) {
+  .header-inner { flex-wrap: wrap; }
+  nav ul { gap: 1rem; font-size: 0.85rem; }
+  .hero-box h1 { font-size: 1.7rem; }
+  .logo img { height: 76px; }
+  .logo { margin-bottom: -18px; }
+  .btn-nav { margin-bottom: -14px; font-size: 0.85rem; }
+}
+@media (max-width: 640px) {
+  nav { order: 3; width: 100%; }
+  nav ul { justify-content: center; flex-wrap: wrap; }
+  .header-cta { order: 2; }
+  .hero { min-height: 480px; }
+  .services-grid, .gallery-strip, .why-grid { grid-template-columns: 1fr; }
+  .logo img { height: 68px; }
+}
+</style>
+</head>
+<body>
+
+<!-- ============================================================
+     DIVI MODULE: Menu / Header (Sticky)
+     Map to: Divi Menu Module (fixed) or Section + Code
+     ============================================================ -->
+<header class="sticky">
+  <div class="header-inner">
+    <a href="#" class="logo" aria-label="Court Solutions Southeast home">
+      <img src="Court-Solutions-South-East-bimi.svg" alt="Court Solutions Southeast">
+    </a>
+    <nav>
+      <ul>
+        <li><a href="#home" class="active">Home</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#gallery">Before & After</a></li>
+        <li><a href="#why">Why Us</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+    <div class="header-cta">
+      <a href="tel:07973182877" class="phone">07973 182877</a>
+      <a href="#contact" class="btn btn-nav">Free Quote<br>& Advice</a>
+    </div>
+  </div>
+</header>
+
+<!-- ============================================================
+     DIVI SECTION: Hero (Video)
+     Map to: Fullwidth Header or Section with Background Video + Blurb
+     ============================================================ -->
+<section class="hero" id="home">
+  <div class="hero-bg">
+    <video class="hero-video" autoplay muted loop playsinline poster="hero-widescreen-wipe.jpg">
+      <source src="hero-widescreen-wipe.mp4" type="video/mp4">
+    </video>
+  </div>
+  <div class="hero-content">
+    <div class="hero-box">
+      <span class="hero-label">Family-run · East Sussex</span>
+      <h1>Restore your court - Sussex and Kent area</h1>
+      <p>Pressure cleaning, repairs, lining and coatings for private courts. Early action keeps your court playing well and avoids full resurfacing.</p>
+      <a href="tel:07973182877" class="btn btn-lg">Call 07973 182877</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     DIVI SECTION: Services
+     Map to: Blurb Modules in a row, or Text modules
+     ============================================================ -->
+<section class="section" id="services">
+  <div class="container">
+    <div class="section-header">
+      <h2>Our Services</h2>
+      <p>Specialist care for macadam, Astro turf and similar outdoor surfaces.</p>
+    </div>
+    <div class="services-grid">
+      <div class="service-card">
+        <img src="pressure_wash.webp" alt="Pressure cleaning">
+        <h3>Pressure Cleaning</h3>
+        <p>Macadam and Astro turf. Removes moss, algae and dirt to restore porosity and grip.</p>
+      </div>
+      <div class="service-card">
+        <img src="pressure_wash.webp" alt="Surface repairs">
+        <h3>Surface Repairs</h3>
+        <p>General repairs to worn or damaged areas before coating or lining.</p>
+      </div>
+      <div class="service-card">
+        <img src="pressure_wash.webp" alt="LTA standard lining">
+        <h3>LTA Standard Lining</h3>
+        <p>Accurate line marking to Lawn Tennis Association specification.</p>
+      </div>
+      <div class="service-card">
+        <img src="pressure_wash.webp" alt="Moss treatment">
+        <h3>Moss Treatment</h3>
+        <p>Chemical treatment to stop moss regrowth after cleaning.</p>
+      </div>
+      <div class="service-card">
+        <img src="pressure_wash.webp" alt="Resin coatings">
+        <h3>Resin Coatings</h3>
+        <p>Polyurethane resin coatings to prolong the life of macadam surfaces.</p>
+      </div>
+      <div class="service-card">
+        <img src="pressure_wash.webp" alt="Colour coating">
+        <h3>Colour Coating</h3>
+        <p>Colour coating to LTA standard for a fresh, durable finish.</p>
+      </div>
+      <div class="service-card">
+        <img src="pressure_wash.webp" alt="Fencing">
+        <h3>Fencing</h3>
+        <p>Repair or replacement of surrounding fencing.</p>
+      </div>
+      <div class="service-card">
+        <img src="pressure_wash.webp" alt="Garden surface and furniture">
+        <h3>Garden surface & furniture</h3>
+        <p>Professional cleaning of patios, paths, outdoor furniture and similar garden surfaces.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     DIVI SECTION: Before & After Gallery Strip
+     Map to: Image modules or Gallery with custom CSS for slider
+     ============================================================ -->
+<section class="gallery" id="gallery">
+  <div class="section-header" style="max-width:1200px; margin:0 auto 2rem;">
+    <h2>Before & After</h2>
+    <p>One court, transformed. Slide to compare.</p>
+  </div>
+  <div class="gallery-strip">
+    <div class="ba-card">
+      <div class="ba-slider" data-ba>
+        <img class="ba-before" src="Refurbished-Before.jpg" alt="Before">
+        <img class="ba-after" src="Refurbished-After.jpg" alt="After">
+        <div class="ba-handle"></div>
+      </div>
+      <div class="ba-caption">Typical private court – before & after restoration</div>
+    </div>
+    <div class="ba-card">
+      <div class="ba-slider" data-ba>
+        <img class="ba-before" src="Refurbished-Before.jpg" alt="Before">
+        <img class="ba-after" src="Refurbished-After.jpg" alt="After">
+        <div class="ba-handle"></div>
+      </div>
+      <div class="ba-caption">Clean surface, clear lines, ready to play</div>
+    </div>
+    <div class="ba-card">
+      <div class="ba-slider" data-ba>
+        <img class="ba-before" src="Refurbished-Before.jpg" alt="Before">
+        <img class="ba-after" src="Refurbished-After.jpg" alt="After">
+        <div class="ba-handle"></div>
+      </div>
+      <div class="ba-caption">Early attention avoids full resurfacing</div>
+    </div>
+  </div>
+  <div class="gallery-cta">
+    <a href="#gallery" class="btn btn-lg">View Before & After gallery</a>
+  </div>
+</section>
+
+<!-- ============================================================
+     DIVI SECTION: Why Us
+     Map to: Blurb or Icon modules in columns
+     ============================================================ -->
+<section class="section" id="why">
+  <div class="container">
+    <div class="section-header">
+      <h2>Why Court Solutions Southeast</h2>
+      <p>A small family company. Personal service, careful work, tidy finish.</p>
+    </div>
+    <div class="why-grid">
+      <div class="why-item">
+        <div class="icon">1</div>
+        <h3>Family-run</h3>
+        <p>Richard Mitchell and family. Personalised service for private clients.</p>
+      </div>
+      <div class="why-item">
+        <div class="icon">2</div>
+        <h3>Free advice & visit</h3>
+        <p>Call for a free inspection, advice and detailed quote. No obligation.</p>
+      </div>
+      <div class="why-item">
+        <div class="icon">3</div>
+        <h3>Clean & tidy</h3>
+        <p>We arrive on time, work carefully, and leave the site clean and tidy.</p>
+      </div>
+      <div class="why-item">
+        <div class="icon">4</div>
+        <h3>Early action saves money</h3>
+        <p>Regular care prevents the need for a full new surface later.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     DIVI SECTION: Footer CTA
+     Map to: Fullwidth Call to Action or Section with Text + Buttons
+     ============================================================ -->
+<section class="footer-cta" id="contact">
+  <h2>Ready to restore your court?</h2>
+  <p>Call Richard for free advice and a no-obligation quote. Or email us and we’ll get back to you.</p>
+  <div class="phones">
+    <a href="tel:07973182877">07973 182877</a>
+    <a href="tel:01342317299">01342 317299</a>
+  </div>
+  <a href="mailto:placeholder@courtsolutions-southeast.co.uk" class="btn btn-lg" style="background:var(--white); color:var(--green) !important;">Email us</a>
+  <p style="margin-top:1.5rem; font-size:0.9rem; opacity:0.85;">Richard Mitchell · Court Solutions Southeast · East Sussex</p>
+</section>
+
+<footer class="footer-bottom">
+  <p>&copy; Court Solutions Southeast. Tennis court cleaning, repair and refurbishment for private clients.</p>
+</footer>
+
+<script>
+// Simple before/after slide-reveal (drag or click to move handle) – used in gallery
+document.querySelectorAll('[data-ba]').forEach(slider => {
+  const after = slider.querySelector('.ba-after');
+  const handle = slider.querySelector('.ba-handle');
+  let dragging = false;
+
+  function setPosition(x) {
+    const rect = slider.getBoundingClientRect();
+    let percent = ((x - rect.left) / rect.width) * 100;
+    percent = Math.max(5, Math.min(95, percent));
+    after.style.clipPath = `inset(0 ${100 - percent}% 0 0)`;
+    handle.style.left = percent + '%';
+  }
+
+  slider.addEventListener('mousedown', e => { dragging = true; setPosition(e.clientX); });
+  slider.addEventListener('touchstart', e => { dragging = true; setPosition(e.touches[0].clientX); }, { passive: true });
+  window.addEventListener('mousemove', e => { if (dragging) setPosition(e.clientX); });
+  window.addEventListener('touchmove', e => { if (dragging) setPosition(e.touches[0].clientX); }, { passive: true });
+  window.addEventListener('mouseup', () => dragging = false);
+  window.addEventListener('touchend', () => dragging = false);
+
+  // Initial position
+  setPosition(slider.getBoundingClientRect().left + slider.offsetWidth / 2);
+});
+</script>
+
+</body>
+</html>
